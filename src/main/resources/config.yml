@@ -1,0 +1,42 @@
+# /##      /##  /######  /#######  /##       /#######     /#####  /######  /###### /##   /##
+#| ##  /# | ## /##__  ##| ##__  ##| ##      | ##__  ##   |__  ## /##__  ##|_  ##_/| ### | ##
+#| ## /###| ##| ##  \ ##| ##  \ ##| ##      | ##  \ ##      | ##| ##  \ ##  | ##  | ####| ##
+#| ##/## ## ##| ##  | ##| #######/| ##      | ##  | ##      | ##| ##  | ##  | ##  | ## ## ##
+#| ####_  ####| ##  | ##| ##__  ##| ##      | ##  | ## /##  | ##| ##  | ##  | ##  | ##  ####
+#| ###/ \  ###| ##  | ##| ##  \ ##| ##      | ##  | ##| ##  | ##| ##  | ##  | ##  | ##\  ###
+#| ##/   \  ##|  ######/| ##  | ##| ########| #######/|  ######/|  ######/ /######| ## \  ##
+#|__/     \__/ \______/ |__/  |__/|________/|_______/  \______/  \______/ |______/|__/  \__/
+#
+#
+# WorldJoin v1.0.0
+# By: aBooDyy | aBooDyy#9543 | https://aBooDyy.net
+#
+# Depends on PlaceholderAPI
+# https://www.spigotmc.org/resources/placeholderapi.6245/
+# By: Clip | clip#0001 | https://extendedclip.com/
+#
+# Feel free to contact me if you have issue or suggestions
+# Discord: https://aBooDyy.net/discord
+#
+#world:
+#  worldNameHere: - Case sensitive
+#    actions:
+#    - '[console] Command runs by console WITHOUT slash (/)'
+#    - '[player] Command runs by the player WITHOUT slash (/)'
+#    - '[message] Message to be send to the player, Supports color codes (&)'
+#  anotherWorld:
+#    actions:
+#    - '[message] &aWelcome &7%player_name% &aTo &7{world_to}&a!'
+#    - '[player] fly on'
+#messages:
+#  no_permission: "The message that will be send when player doesn't have permission to WorldJoin commands."
+#
+# placeholders: {world_from}, {world_to} and all PlaceholderAPI placeholders (https://helpch.at/placeholders)
+#
+worlds:
+  worldName:
+    actions:
+    - '[message] &aWelcome %player_name% to &7{world_to}&a!'
+    - '[console] bc &7%player_name% &aJoined &7{world_to}&a!'
+messages:
+  no_permission: "&cYou don't have permission to use this command."

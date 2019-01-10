@@ -1,0 +1,14 @@
+name: WorldJoin
+version: 1.0.0
+main: me.aBooDyy.WorldJoin.WorldJoin
+author: aBooDyy
+
+commands:
+  worldjoin:
+    description: plugin info.
+    aliases: [wjoin]
+
+permissions:
+  worldjoin.admin:
+    default: op
+    description: gives you access to WorldJoin commands.
