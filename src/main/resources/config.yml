@@ -21,13 +21,13 @@
 #world:
 #  worldNameHere: - Case sensitive
 #    actions:
-#    - '[console] Command runs by console WITHOUT slash (/)'
+#    - '[console] Command runs by console WITHOUT slash (/)<delay=TimeInTicks>' - 20 ticks = 1 second
 #    - '[player] Command runs by the player WITHOUT slash (/)'
 #    - '[message] Message to be send to the player, Supports color codes (&)'
 #  anotherWorld:
 #    actions:
 #    - '[message] &aWelcome &7%player_name% &aTo &7{world_to}&a!'
-#    - '[player] fly on'
+#    - '[player] fly on<delay=60>'
 #messages:
 #  no_permission: "The message that will be send when player doesn't have permission to WorldJoin commands."
 #
