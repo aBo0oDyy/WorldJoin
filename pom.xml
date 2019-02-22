@@ -6,7 +6,19 @@
 
     <groupId>me.aBooDyy</groupId>
     <artifactId>WorldJoin</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>7</source>
+                    <target>7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <repositories>
         <repository>
