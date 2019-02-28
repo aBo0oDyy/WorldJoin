@@ -8,7 +8,7 @@
 #|__/     \__/ \______/ |__/  |__/|________/|_______/  \______/  \______/ |______/|__/  \__/
 #
 #
-# WorldJoin v1.1.1
+# WorldJoin v1.1.2
 # By: aBooDyy | aBooDyy#9543 | https://aBooDyy.net
 #
 # Depends on PlaceholderAPI
@@ -20,6 +20,7 @@
 #
 #world:
 #  worldNameHere: - Case sensitive
+#    run_on_join: true/false - if true, the actions will run when the player joins the server in the specified world
 #    actions:
 #    - '[console] Command runs by console WITHOUT slash (/)<delay=TimeInTicks>' - 20 ticks = 1 second
 #    - '[player] Command runs by the player WITHOUT slash (/)'
@@ -35,6 +36,7 @@
 #
 worlds:
   worldName:
+    run_on_join: true
     actions:
     - '[message] &aWelcome %player_name% to &7{world_to}&a!'
     - '[console] bc &7%player_name% &aJoined &7{world_to}&a!'

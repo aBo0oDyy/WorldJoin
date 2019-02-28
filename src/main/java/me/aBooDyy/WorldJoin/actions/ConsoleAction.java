@@ -1,32 +1,24 @@
 package me.aBooDyy.WorldJoin.actions;
 
-import me.aBooDyy.WorldJoin.WorldJoin;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
-import org.bukkit.event.player.PlayerTeleportEvent;
+import org.bukkit.entity.Player;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static me.aBooDyy.WorldJoin.Utils.placeholders;
+
 public class ConsoleAction {
-
-    private WorldJoin pl;
-    public ConsoleAction(WorldJoin plugin) {
-        pl = plugin;
-    }
-    public void consoleAction(PlayerTeleportEvent e, String action) {
-        World world = e.getTo().getWorld();
-
-        String consoleCMD = action.replace("[console] ", "")
-                .replaceAll("\\{world_from}", e.getFrom().getWorld().getName())
-                .replaceAll("\\{world_to}", world.getName());
-        final String consoleCMDWP = PlaceholderAPI.setPlaceholders(e.getPlayer(), consoleCMD);
+    public static void consoleAction(final Player p, World from, World to, String action) {
+        String consoleCMD = placeholders(from, to, action.replaceFirst("(?i)" + "\\[console] ", ""));
+        final String consoleCMDWP = PlaceholderAPI.setPlaceholders(p, consoleCMD);
 
         Matcher delay = Pattern.compile("<delay=([^)]+)>").matcher(consoleCMDWP);
         final long ticks = delay.find() ? Long.parseLong(delay.group(1)) : 0;
 
-        pl.getServer().getScheduler().runTaskLater(pl, new Runnable() {
+        Bukkit.getServer().getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("WorldJoin"), new Runnable() {
             public void run() {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), consoleCMDWP.replaceFirst("<delay=" + ticks + ">", ""));
             }
