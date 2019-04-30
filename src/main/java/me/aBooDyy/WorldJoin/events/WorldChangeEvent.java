@@ -44,6 +44,9 @@ public class WorldChangeEvent implements Listener {
                         case "message":
                             messageAction(p, from, to, action);
                             break;
+                        case "broadcast":
+                            broadcastAction(p, from, to, action);
+                            break;
                     }
                 }
             }

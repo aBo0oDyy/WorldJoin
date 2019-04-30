@@ -12,7 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static me.aBooDyy.WorldJoin.actions.ConsoleAction.consoleAction;
-import static me.aBooDyy.WorldJoin.actions.MessageAction.messageAction;
+import static me.aBooDyy.WorldJoin.actions.MessageAction.*;
 import static me.aBooDyy.WorldJoin.actions.PlayerAction.playerAction;
 
 public class WorldJoinEvent implements Listener {
@@ -43,6 +43,9 @@ public class WorldJoinEvent implements Listener {
                             break;
                         case "message":
                             messageAction(p, world, world, action);
+                            break;
+                        case "broadcast":
+                            broadcastAction(p, world, world, action);
                             break;
                     }
                 }

@@ -23,4 +23,17 @@ public class MessageAction {
             }
         }, ticks);
     }
+
+    public static void broadcastAction(final Player p,World from, World to, String action) {
+        String broadcast = color(placeholders(from, to, action.replaceFirst("(?i)" + "\\[broadcast] ", "")));
+        final String broadcastWP = PlaceholderAPI.setPlaceholders(p, broadcast);
+
+        Matcher delay = Pattern.compile("<delay=([^)]+)>").matcher(broadcastWP);
+        final long ticks = delay.find() ? Long.parseLong(delay.group(1)) : 0;
+        Bukkit.getServer().getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("WorldJoin"), new Runnable() {
+            public void run() {
+                Bukkit.broadcastMessage(broadcastWP.replaceFirst("<delay=" + ticks + ">", ""));
+            }
+        }, ticks);
+    }
 }
