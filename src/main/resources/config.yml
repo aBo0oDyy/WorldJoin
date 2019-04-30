@@ -8,7 +8,7 @@
 #|__/     \__/ \______/ |__/  |__/|________/|_______/  \______/  \______/ |______/|__/  \__/
 #
 #
-# WorldJoin v1.1.2
+# WorldJoin v1.1.3
 # By: aBooDyy | aBooDyy#9543 | https://aBooDyy.net
 #
 # Depends on PlaceholderAPI
@@ -25,6 +25,7 @@
 #    - '[console] Command runs by console WITHOUT slash (/)<delay=TimeInTicks>' - 20 ticks = 1 second
 #    - '[player] Command runs by the player WITHOUT slash (/)'
 #    - '[message] Message to be send to the player, Supports color codes (&)'
+#    - '[broadcast] Send a broadcast to all online players, Supports color codes (&)'
 #  anotherWorld:
 #    actions:
 #    - '[message] &aWelcome &7%player_name% &aTo &7{world_to}&a!'
@@ -39,6 +40,6 @@ worlds:
     run_on_join: true
     actions:
     - '[message] &aWelcome %player_name% to &7{world_to}&a!'
-    - '[console] bc &7%player_name% &aJoined &7{world_to}&a!'
+    - '[broadcast] &7%player_name% &aJoined &7{world_to}&a!'
 messages:
   no_permission: "&cYou don't have permission to use this command."
