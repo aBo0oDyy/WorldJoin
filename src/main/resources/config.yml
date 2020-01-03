@@ -8,7 +8,7 @@
 #|__/     \__/ \______/ |__/  |__/|________/|_______/  \______/  \______/ |______/|__/  \__/
 #
 #
-# WorldJoin v1.1.3
+# WorldJoin v${project.version}
 # By: aBooDyy | aBooDyy#9543 | https://aBooDyy.net
 #
 # Depends on PlaceholderAPI
@@ -18,23 +18,29 @@
 # Feel free to contact me if you have issue or suggestions
 # Discord: https://aBooDyy.net/discord
 #
-#world:
+#check_updates: true/false - Enables/Disables checking new updates for the plugin.
+#worlds:
 #  worldNameHere: - Case sensitive
 #    run_on_join: true/false - if true, the actions will run when the player joins the server in the specified world
 #    actions:
-#    - '[console] Command runs by console WITHOUT slash (/)<delay=TimeInTicks>' - 20 ticks = 1 second
-#    - '[player] Command runs by the player WITHOUT slash (/)'
-#    - '[message] Message to be send to the player, Supports color codes (&)'
-#    - '[broadcast] Send a broadcast to all online players, Supports color codes (&)'
+#      - '[console] Command runs by console WITHOUT slash (/)<delay=TimeInTicks>' - 20 ticks = 1 second
+#      - '[player] Command runs by the player WITHOUT slash (/)'
+#      - '[message] Message to be send to the player, Supports color codes (&)'
+#      - '[broadcast] Send a broadcast to all online players, Supports color codes (&)'
+#    first_join_actions: - runs these actions when the player joins the world for the first time (remove it to disable it)
+#      - "[ACTION] You can use all the actions you can use in actions: option here."
 #  anotherWorld:
 #    actions:
 #    - '[message] &aWelcome &7%player_name% &aTo &7{world_to}&a!'
 #    - '[player] fly on<delay=60>'
+#    first_join_actions:
+#      - "[message] &aWelcome &7%player_name%! &aIt's your first time here."
 #messages:
 #  no_permission: "The message that will be send when player doesn't have permission to WorldJoin commands."
 #
 # placeholders: {world_from}, {world_to} and all PlaceholderAPI placeholders (https://helpch.at/placeholders)
 #
+check_updates: true
 worlds:
   worldName:
     run_on_join: true
