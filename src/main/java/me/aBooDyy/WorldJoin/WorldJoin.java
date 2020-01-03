@@ -1,7 +1,7 @@
 package me.aBooDyy.WorldJoin;
 
 import me.aBooDyy.WorldJoin.datahandler.WorldsData;
-import me.aBooDyy.WorldJoin.events.*;
+import me.aBooDyy.WorldJoin.listeners.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -24,11 +24,8 @@ public class WorldJoin extends JavaPlugin {
 
             this.getCommand("worldjoin").setExecutor(new WorldJoinCommands(this));
 
-            WorldJoinEvent WorldJoinEvent = new WorldJoinEvent(this);
-            WorldChangeEvent WorldChangeEvent = new WorldChangeEvent(this);
-
-            Bukkit.getPluginManager().registerEvents(WorldJoinEvent, this);
-            Bukkit.getPluginManager().registerEvents(WorldChangeEvent, this);
+            Bukkit.getPluginManager().registerEvents(new WorldJoinListener(), this);
+            Bukkit.getPluginManager().registerEvents(new WorldChangeListener(), this);
             return;
         }
 

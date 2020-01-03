@@ -48,5 +48,7 @@ public class WorldsData {
         } catch (IOException e) {
             plugin.getLogger().warning("Couldn't save world_data.yml file.");
         }
+
+        conf = YamlConfiguration.loadConfiguration(file);
     }
 }

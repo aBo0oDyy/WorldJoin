@@ -1,6 +1,5 @@
-package me.aBooDyy.WorldJoin.events;
+package me.aBooDyy.WorldJoin.listeners;
 
-import me.aBooDyy.WorldJoin.WorldJoin;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,13 +13,9 @@ import java.util.regex.Pattern;
 import static me.aBooDyy.WorldJoin.actions.ConsoleAction.consoleAction;
 import static me.aBooDyy.WorldJoin.actions.MessageAction.*;
 import static me.aBooDyy.WorldJoin.actions.PlayerAction.playerAction;
+import static me.aBooDyy.WorldJoin.WorldJoin.plugin;
 
-public class WorldChangeEvent implements Listener {
-
-    private WorldJoin pl;
-    public WorldChangeEvent(WorldJoin plugin) {
-        pl = plugin;
-    }
+public class WorldChangeListener implements Listener {
 
     @EventHandler
     public void changeWorld(PlayerTeleportEvent e) {
@@ -28,9 +23,9 @@ public class WorldChangeEvent implements Listener {
         World from = e.getFrom().getWorld();
         World to = e.getTo().getWorld();
 
-        if (pl.getConfig().get("worlds." + to.getName()) != null) {
+        if (plugin.getConfig().get("worlds." + to.getName()) != null) {
             if (e.getFrom().getWorld() != e.getTo().getWorld()) {
-                List<String> actions = pl.getConfig().getStringList("worlds." + to.getName() + ".actions");
+                List<String> actions = plugin.getConfig().getStringList("worlds." + to.getName() + ".actions");
                 for (String action : actions) {
                     Matcher actionType = Pattern.compile("\\[([^)]+)]").matcher(action);
                     String type = actionType.find() ? actionType.group(1).toLowerCase() : "";
