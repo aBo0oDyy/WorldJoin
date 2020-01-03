@@ -31,8 +31,8 @@
 #      - "[ACTION] You can use all the actions you can use in actions: option here."
 #  anotherWorld:
 #    actions:
-#    - '[message] &aWelcome &7%player_name% &aTo &7{world_to}&a!'
-#    - '[player] fly on<delay=60>'
+#      - '[message] &aWelcome &7%player_name% &aTo &7{world_to}&a!'
+#      - '[player] fly on<delay=60>'
 #    first_join_actions:
 #      - "[message] &aWelcome &7%player_name%! &aIt's your first time here."
 #messages:
@@ -47,7 +47,7 @@ worlds:
     first_join_actions:
       - "[message] &aWelcome %player_name% to &7{world_to}&a!"
     actions:
-    - '[message] &aWelcome %player_name% to &7{world_to}&a!'
-    - '[broadcast] &7%player_name% &aJoined &7{world_to}&a!'
+      - '[message] &aWelcome %player_name% to &7{world_to}&a!'
+      - '[broadcast] &7%player_name% &aJoined &7{world_to}&a!'
 messages:
   no_permission: "&cYou don't have permission to use this command."
