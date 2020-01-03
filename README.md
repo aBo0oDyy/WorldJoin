@@ -6,6 +6,7 @@ Depends on [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.62
 + [Spigot Page](https://www.spigotmc.org/resources/worldjoin.63892/)
 + [Config file](https://github.com/aBo0oDyy/WorldJoin/blob/master/src/main/resources/config.yml)
 + [PlaceholderAPI placeholders](https://helpch.at/placeholders)
++ [bStats](https://bstats.org/plugin/bukkit/WorldJoin)
 + [Discord](https://aboodyy.net/discord)
 
 # License
