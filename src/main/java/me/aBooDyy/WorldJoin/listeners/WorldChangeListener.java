@@ -29,11 +29,8 @@ public class WorldChangeListener implements Listener {
             if (e.getFrom().getWorld() != e.getTo().getWorld()) {
                 List<String> actions = config.getStringList("worlds." + to.getName() + ".actions");
 
-                if (!plugin.getWorldsData().containsPlayer(to.getName(), p.getUniqueId())) {
+                if (!plugin.getWorldsData().isFirstJoin(to.getName(), p.getUniqueId()))
                     actions = config.getStringList("worlds." + to.getName() + ".first_join_actions");
-
-                    plugin.getWorldsData().addPlayer(to.getName(), p.getUniqueId());
-                }
 
                 for (String action : actions) {
                     Matcher actionType = Pattern.compile("\\[([^)]+)]").matcher(action);
@@ -55,5 +52,8 @@ public class WorldChangeListener implements Listener {
                 }
             }
         }
+
+        if (!plugin.getWorldsData().isFirstJoin(to.getName(), p.getUniqueId()))
+            plugin.getWorldsData().addPlayer(to.getName(), p.getUniqueId());
     }
 }
