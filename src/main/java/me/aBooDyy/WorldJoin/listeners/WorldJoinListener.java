@@ -1,6 +1,7 @@
 package me.aBooDyy.WorldJoin.listeners;
 
 import org.bukkit.World;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,9 +24,18 @@ public class WorldJoinListener implements Listener {
         Player p = e.getPlayer();
         World world = p.getLocation().getWorld();
 
-        if (plugin.getConfig().get("worlds." + world.getName()) != null) {
-            if (plugin.getConfig().getBoolean("worlds." + world.getName() + ".run_on_join")) {
-                List<String> actions = plugin.getConfig().getStringList("worlds." + world.getName() + ".actions");
+        FileConfiguration config = plugin.getConfig();
+
+        if (config.get("worlds." + world.getName()) != null) {
+            if (config.getBoolean("worlds." + world.getName() + ".run_on_join")) {
+                List<String> actions = config.getStringList("worlds." + world.getName() + ".actions");
+
+                if (!plugin.getWorldsData().containsPlayer(world.getName(), p.getUniqueId())) {
+                    actions = config.getStringList("worlds." + world.getName() + ".first_join_actions");
+
+                    plugin.getWorldsData().addPlayer(world.getName(), p.getUniqueId());
+                }
+
                 for (String action : actions) {
                     Matcher actionType = Pattern.compile("\\[([^)]+)]").matcher(action);
                     String type = actionType.find() ? actionType.group(1).toLowerCase() : "";
