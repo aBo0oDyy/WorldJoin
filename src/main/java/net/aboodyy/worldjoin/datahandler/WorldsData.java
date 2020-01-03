@@ -28,6 +28,7 @@ public class WorldsData {
     }
 
     public boolean isFirstJoin(String world, UUID uuid) {
+        conf = YamlConfiguration.loadConfiguration(file);
         return !conf.getBoolean(world + ".joined_before." + uuid.toString());
     }
 
