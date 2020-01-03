@@ -1,4 +1,4 @@
-package me.aBooDyy.WorldJoin;
+package net.aboodyy.worldjoin;
 
 import org.bukkit.ChatColor;
 import org.bukkit.World;

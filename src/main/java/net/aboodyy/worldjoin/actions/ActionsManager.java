@@ -1,4 +1,4 @@
-package me.aBooDyy.WorldJoin.actions;
+package net.aboodyy.worldjoin.actions;
 
 public class ActionsManager {
 

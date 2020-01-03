@@ -1,4 +1,4 @@
-package me.aBooDyy.WorldJoin.actions;
+package net.aboodyy.worldjoin.actions;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static me.aBooDyy.WorldJoin.Utils.*;
+import static net.aboodyy.worldjoin.Utils.*;
 
 public class MessageAction {
     public void message(final Player p, World from, World to, String action) {
@@ -17,11 +17,8 @@ public class MessageAction {
 
         Matcher delay = Pattern.compile("<delay=([^)]+)>").matcher(messageWP);
         final long ticks = delay.find() ? Long.parseLong(delay.group(1)) : 0;
-        Bukkit.getServer().getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("WorldJoin"), new Runnable() {
-            public void run() {
-                p.sendMessage(messageWP.replaceFirst("<delay=" + ticks + ">", ""));
-            }
-        }, ticks);
+        Bukkit.getServer().getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("WorldJoin"), () ->
+                p.sendMessage(messageWP.replaceFirst("<delay=" + ticks + ">", "")), ticks);
     }
 
     public void broadcast(final Player p,World from, World to, String action) {
@@ -30,10 +27,7 @@ public class MessageAction {
 
         Matcher delay = Pattern.compile("<delay=([^)]+)>").matcher(broadcastWP);
         final long ticks = delay.find() ? Long.parseLong(delay.group(1)) : 0;
-        Bukkit.getServer().getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("WorldJoin"), new Runnable() {
-            public void run() {
-                Bukkit.broadcastMessage(broadcastWP.replaceFirst("<delay=" + ticks + ">", ""));
-            }
-        }, ticks);
+        Bukkit.getServer().getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("WorldJoin"), () ->
+                Bukkit.broadcastMessage(broadcastWP.replaceFirst("<delay=" + ticks + ">", "")), ticks);
     }
 }

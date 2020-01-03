@@ -1,4 +1,4 @@
-package me.aBooDyy.WorldJoin.actions;
+package net.aboodyy.worldjoin.actions;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static me.aBooDyy.WorldJoin.Utils.placeholders;
+import static net.aboodyy.worldjoin.Utils.placeholders;
 
 public class PlayerAction {
     public void player(final Player p, World from, World to, String action) {
@@ -18,10 +18,7 @@ public class PlayerAction {
         Matcher delay = Pattern.compile("<delay=([^)]+)>").matcher(playerCMDWP);
         final long ticks = delay.find() ? Long.parseLong(delay.group(1)) : 0;
 
-        Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("WorldJoin"), new Runnable() {
-            public void run() {
-                p.performCommand(playerCMDWP.replaceFirst("<delay=" + ticks + ">", ""));
-            }
-        }, ticks);
+        Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("WorldJoin"), () ->
+                p.performCommand(playerCMDWP.replaceFirst("<delay=" + ticks + ">", "")), ticks);
     }
 }

@@ -1,4 +1,4 @@
-package me.aBooDyy.WorldJoin;
+package net.aboodyy.worldjoin;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.command.Command;
@@ -6,12 +6,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import static me.aBooDyy.WorldJoin.Utils.color;
+import static net.aboodyy.worldjoin.Utils.color;
 
 public class WorldJoinCommands implements CommandExecutor {
 
     private WorldJoin pl;
-    public WorldJoinCommands(WorldJoin plugin) {
+    WorldJoinCommands(WorldJoin plugin) {
         pl = plugin;
     }
 

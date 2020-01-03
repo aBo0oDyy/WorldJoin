@@ -1,9 +1,10 @@
-package me.aBooDyy.WorldJoin;
+package net.aboodyy.worldjoin;
 
-import me.aBooDyy.WorldJoin.actions.ActionsManager;
-import me.aBooDyy.WorldJoin.datahandler.WorldsData;
-import me.aBooDyy.WorldJoin.listeners.*;
-import me.aBooDyy.WorldJoin.updatechecker.SpigotUpdateChecker;
+import net.aboodyy.worldjoin.actions.ActionsManager;
+import net.aboodyy.worldjoin.datahandler.WorldsData;
+import net.aboodyy.worldjoin.updatechecker.SpigotUpdateChecker;
+import net.aboodyy.worldjoin.listeners.WorldChangeListener;
+import net.aboodyy.worldjoin.listeners.WorldJoinListener;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;

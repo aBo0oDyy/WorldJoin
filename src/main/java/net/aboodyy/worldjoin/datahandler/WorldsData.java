@@ -1,4 +1,4 @@
-package me.aBooDyy.WorldJoin.datahandler;
+package net.aboodyy.worldjoin.datahandler;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
-import static me.aBooDyy.WorldJoin.WorldJoin.plugin;
+import static net.aboodyy.worldjoin.WorldJoin.plugin;
 
 public class WorldsData {
 

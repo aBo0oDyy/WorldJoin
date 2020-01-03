@@ -1,4 +1,4 @@
-package me.aBooDyy.WorldJoin.updatechecker;
+package net.aboodyy.worldjoin.updatechecker;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -11,8 +11,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-import static me.aBooDyy.WorldJoin.Utils.color;
-import static me.aBooDyy.WorldJoin.WorldJoin.plugin;
+import static net.aboodyy.worldjoin.Utils.color;
+import static net.aboodyy.worldjoin.WorldJoin.plugin;
 
 public class SpigotUpdateChecker implements Listener {
 

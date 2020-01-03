@@ -1,7 +1,7 @@
 name: WorldJoin
 description: A plugin to run commands and send messages on world join
 version: ${project.version}
-main: me.aBooDyy.WorldJoin.WorldJoin
+main: net.aboodyy.worldjoin.WorldJoin
 softdepend: [PlaceholderAPI]
 author: aBooDyy
 website: aBooDyy.net

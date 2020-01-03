@@ -1,6 +1,6 @@
-package me.aBooDyy.WorldJoin.listeners;
+package net.aboodyy.worldjoin.listeners;
 
-import me.aBooDyy.WorldJoin.actions.ActionsManager;
+import net.aboodyy.worldjoin.actions.ActionsManager;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static me.aBooDyy.WorldJoin.WorldJoin.plugin;
+import static net.aboodyy.worldjoin.WorldJoin.plugin;
 
 public class WorldChangeListener implements Listener {
 

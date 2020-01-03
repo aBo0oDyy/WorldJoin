@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.aBooDyy</groupId>
-    <artifactId>WorldJoin</artifactId>
-    <version>1.1.3</version>
+    <groupId>net.aboodyy</groupId>
+    <artifactId>worldjoin</artifactId>
+    <version>1.2.0</version>
 
     <repositories>
         <repository>
@@ -68,7 +68,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>me.aboodyy.worldjoin.dependencies.bstats</shadedPattern>
+                            <shadedPattern>net.aboodyy.worldjoin.dependencies.bstats</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
