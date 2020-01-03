@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 import static me.aBooDyy.WorldJoin.Utils.placeholders;
 
 public class ConsoleAction {
-    public static void consoleAction(final Player p, World from, World to, String action) {
+    public void console(final Player p, World from, World to, String action) {
         String consoleCMD = placeholders(from, to, action.replaceFirst("(?i)" + "\\[console] ", ""));
         final String consoleCMDWP = PlaceholderAPI.setPlaceholders(p, consoleCMD);
 

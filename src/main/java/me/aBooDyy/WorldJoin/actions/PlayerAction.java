@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 import static me.aBooDyy.WorldJoin.Utils.placeholders;
 
 public class PlayerAction {
-    public static void playerAction(final Player p, World from, World to, String action) {
+    public void player(final Player p, World from, World to, String action) {
         String playerCMD = placeholders(from, to, action.replaceFirst("(?i)" + "\\[player] ", ""));
         final String playerCMDWP = PlaceholderAPI.setPlaceholders(p, playerCMD);
 

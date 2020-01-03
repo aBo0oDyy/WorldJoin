@@ -1,5 +1,6 @@
 package me.aBooDyy.WorldJoin.listeners;
 
+import me.aBooDyy.WorldJoin.actions.ActionsManager;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -11,9 +12,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static me.aBooDyy.WorldJoin.actions.ConsoleAction.consoleAction;
-import static me.aBooDyy.WorldJoin.actions.MessageAction.*;
-import static me.aBooDyy.WorldJoin.actions.PlayerAction.playerAction;
 import static me.aBooDyy.WorldJoin.WorldJoin.plugin;
 
 public class WorldChangeListener implements Listener {
@@ -25,6 +23,7 @@ public class WorldChangeListener implements Listener {
         World to = e.getTo().getWorld();
 
         FileConfiguration config = plugin.getConfig();
+        ActionsManager actionsManager = plugin.getActionsManager();
 
         if (config.get("worlds." + to.getName()) != null) {
             if (e.getFrom().getWorld() != e.getTo().getWorld()) {
@@ -41,16 +40,16 @@ public class WorldChangeListener implements Listener {
                     String type = actionType.find() ? actionType.group(1).toLowerCase() : "";
                     switch (type) {
                         case "console":
-                            consoleAction(p, from, to, action);
+                            actionsManager.getConsoleAction().console(p, from, to, action);
                             break;
                         case "player":
-                            playerAction(p, from, to, action);
+                            actionsManager.getPlayerAction().player(p, from, to, action);
                             break;
                         case "message":
-                            messageAction(p, from, to, action);
+                            actionsManager.getMessageAction().message(p, from, to, action);
                             break;
                         case "broadcast":
-                            broadcastAction(p, from, to, action);
+                            actionsManager.getMessageAction().broadcast(p, from, to, action);
                             break;
                     }
                 }

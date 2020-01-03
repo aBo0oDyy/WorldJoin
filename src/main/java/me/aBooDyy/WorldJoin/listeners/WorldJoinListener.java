@@ -1,5 +1,6 @@
 package me.aBooDyy.WorldJoin.listeners;
 
+import me.aBooDyy.WorldJoin.actions.ActionsManager;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -12,9 +13,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static me.aBooDyy.WorldJoin.WorldJoin.plugin;
-import static me.aBooDyy.WorldJoin.actions.ConsoleAction.consoleAction;
-import static me.aBooDyy.WorldJoin.actions.MessageAction.*;
-import static me.aBooDyy.WorldJoin.actions.PlayerAction.playerAction;
 
 public class WorldJoinListener implements Listener {
 
@@ -25,6 +23,7 @@ public class WorldJoinListener implements Listener {
         World world = p.getLocation().getWorld();
 
         FileConfiguration config = plugin.getConfig();
+        ActionsManager actionsManager = plugin.getActionsManager();
 
         if (config.get("worlds." + world.getName()) != null) {
             if (config.getBoolean("worlds." + world.getName() + ".run_on_join")) {
@@ -42,16 +41,16 @@ public class WorldJoinListener implements Listener {
 
                     switch (type) {
                         case "console":
-                            consoleAction(p, world, world, action);
+                            actionsManager.getConsoleAction().console(p, world, world, action);
                             break;
                         case "player":
-                            playerAction(p, world, world, action);
+                            actionsManager.getPlayerAction().player(p, world, world, action);
                             break;
                         case "message":
-                            messageAction(p, world, world, action);
+                            actionsManager.getMessageAction().message(p, world, world, action);
                             break;
                         case "broadcast":
-                            broadcastAction(p, world, world, action);
+                            actionsManager.getMessageAction().broadcast(p, world, world, action);
                             break;
                     }
                 }

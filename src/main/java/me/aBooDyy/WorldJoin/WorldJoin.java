@@ -1,5 +1,6 @@
 package me.aBooDyy.WorldJoin;
 
+import me.aBooDyy.WorldJoin.actions.ActionsManager;
 import me.aBooDyy.WorldJoin.datahandler.WorldsData;
 import me.aBooDyy.WorldJoin.listeners.*;
 import org.bukkit.Bukkit;
@@ -12,6 +13,8 @@ public class WorldJoin extends JavaPlugin {
 
     private WorldsData worldsData;
 
+    private ActionsManager actionsManager;
+
     @Override
     public void onEnable() {
         plugin = this;
@@ -21,6 +24,7 @@ public class WorldJoin extends JavaPlugin {
             this.saveDefaultConfig();
 
             worldsData = new WorldsData();
+            actionsManager = new ActionsManager();
 
             this.getCommand("worldjoin").setExecutor(new WorldJoinCommands(this));
 
@@ -34,5 +38,9 @@ public class WorldJoin extends JavaPlugin {
 
     public WorldsData getWorldsData() {
         return worldsData;
+    }
+
+    public ActionsManager getActionsManager() {
+        return actionsManager;
     }
 }
