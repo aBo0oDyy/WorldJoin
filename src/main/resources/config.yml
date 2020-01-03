@@ -45,7 +45,7 @@ worlds:
   worldName:
     run_on_join: true
     first_join_actions:
-      - "[message] &bWelcome &f%player_name%! &fIt's your first time here."
+      - "[message] &bWelcome &f%player_name%! &bIt's your first time here."
     actions:
       - '[message] &aWelcome %player_name% to &7{world_to}&a!'
       - '[broadcast] &7%player_name% &aJoined &7{world_to}&a!'
