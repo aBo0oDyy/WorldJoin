@@ -1,6 +1,7 @@
 package net.aboodyy.worldjoin;
 
 import net.aboodyy.worldjoin.actions.ActionsManager;
+import net.aboodyy.worldjoin.datahandler.PlayersData;
 import net.aboodyy.worldjoin.datahandler.WorldsData;
 import net.aboodyy.worldjoin.updatechecker.SpigotUpdateChecker;
 import net.aboodyy.worldjoin.listeners.WorldChangeListener;
@@ -16,6 +17,8 @@ public class WorldJoin extends JavaPlugin {
 
     private WorldsData worldsData;
 
+    private PlayersData playersData;
+
     private ActionsManager actionsManager;
 
     @Override
@@ -30,6 +33,7 @@ public class WorldJoin extends JavaPlugin {
             new Metrics(this);
 
             worldsData = new WorldsData();
+            playersData = new PlayersData();
             actionsManager = new ActionsManager();
 
             this.getCommand("worldjoin").setExecutor(new WorldJoinCommands(this));
@@ -48,5 +52,9 @@ public class WorldJoin extends JavaPlugin {
 
     public ActionsManager getActionsManager() {
         return actionsManager;
+    }
+
+    public PlayersData getPlayersData() {
+        return playersData;
     }
 }
