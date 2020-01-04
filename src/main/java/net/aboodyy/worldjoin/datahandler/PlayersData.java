@@ -5,7 +5,6 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,9 +23,9 @@ public class PlayersData {
         save();
     }
 
-    public void setUniqueActions(String world, UUID uuid, String... actions) {
+    public void addUniqueAction(String world, UUID uuid, String type, String action) {
         List<String> current = conf.getStringList(world + ".unique_actions." + uuid.toString());
-        current.addAll(Arrays.asList(actions));
+        current.add("[" + type.toLowerCase() + "] " + action);
 
         conf.set(world + ".unique_actions." + uuid.toString(), current);
         save();
