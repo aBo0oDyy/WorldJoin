@@ -47,12 +47,15 @@ public class PlayersData {
 
     public List<String> getSpecialActions(String world, UUID uuid) {
         conf = YamlConfiguration.loadConfiguration(file);
-        List<String> actions = conf.getStringList(world + ".special_actions." + uuid.toString());
+
+        return conf.getStringList(world + ".special_actions." + uuid.toString());
+    }
+
+    public void clearSpecialActions(String world, UUID uuid) {
+        conf = YamlConfiguration.loadConfiguration(file);
 
         conf.set(world + ".special_actions." + uuid.toString(), null);
         save();
-
-        return actions;
     }
 
     private void save() {
