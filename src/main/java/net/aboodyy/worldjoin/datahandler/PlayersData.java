@@ -23,24 +23,24 @@ public class PlayersData {
         save();
     }
 
-    public void addUniqueAction(String world, UUID uuid, String type, String action) {
-        List<String> current = conf.getStringList(world + ".unique_actions." + uuid.toString());
+    public void addSpecialAction(String world, UUID uuid, String type, String action) {
+        List<String> current = conf.getStringList(world + ".special_actions." + uuid.toString());
         current.add("[" + type.toLowerCase() + "] " + action);
 
-        conf.set(world + ".unique_actions." + uuid.toString(), current);
+        conf.set(world + ".special_actions." + uuid.toString(), current);
         save();
     }
 
-    public boolean hasUniqueActions(String world, UUID uuid) {
+    public boolean hasSpecialActions(String world, UUID uuid) {
         conf = YamlConfiguration.loadConfiguration(file);
-        return conf.isList(world + ".unique_actions." + uuid.toString());
+        return conf.isList(world + ".special_actions." + uuid.toString());
     }
 
-    public List<String> getUniqueActions(String world, UUID uuid) {
+    public List<String> getSpecialActions(String world, UUID uuid) {
         conf = YamlConfiguration.loadConfiguration(file);
-        List<String> actions = conf.getStringList(world + ".unique_actions." + uuid.toString());
+        List<String> actions = conf.getStringList(world + ".special_actions." + uuid.toString());
 
-        conf.set(world + ".unique_actions." + uuid.toString(), null);
+        conf.set(world + ".special_actions." + uuid.toString(), null);
         save();
 
         return actions;
