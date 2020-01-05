@@ -11,3 +11,6 @@ Depends on [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.62
 
 # License
 WorldJoin is licensed under the **GUN-GPLv3** license. Refer to the [LICENSE](https://github.com/aBo0oDyy/WorldJoin/blob/master/LICENSE) file for more information.
+
+# Credits
+Big thanks to [Matt](https://github.com/ipsk) for the great command framework ([MF](https://github.com/ipsk/MattsFramework)) this plugin is using.
