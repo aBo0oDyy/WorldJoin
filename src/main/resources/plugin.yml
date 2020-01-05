@@ -6,12 +6,32 @@ softdepend: [PlaceholderAPI]
 author: aBooDyy
 website: aBooDyy.net
 
-commands:
-  worldjoin:
-    description: plugin info.
-    aliases: [wjoin]
-
 permissions:
   worldjoin.admin:
     default: op
-    description: gives you access to WorldJoin commands.
+    description: Gives you access to all WorldJoin commands.
+    children:
+      worldjoin.help: true
+      worldjoin.reload: true
+      worldjoin.special.list: true
+      worldjoin.special.add: true
+      worldjoin.special.remove: true
+      worldjoin.special.clear: true
+  worldjoin.help:
+    default: op
+    description: Gives acces to the help command.
+  worldjoin.reload:
+    default: op
+    description: Gives acces to the reload command.
+  worldjoin.special.list:
+    default: op
+    description: Gives acces to the special list command.
+  worldjoin.special.add:
+    default: op
+    description: Gives acces to the special add command.
+  worldjoin.special.remove:
+    default: op
+    description: Gives acces to the special remove command.
+  worldjoin.special.clear:
+    default: op
+    description: Gives acces to the special clear command.
