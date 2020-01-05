@@ -42,6 +42,11 @@
             <version>1.5</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>me.mattstudios.utils</groupId>
+            <artifactId>matts-framework</artifactId>
+            <version>1.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -69,6 +74,10 @@
                         <relocation>
                             <pattern>org.bstats</pattern>
                             <shadedPattern>net.aboodyy.worldjoin.dependencies.bstats</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>me.mattstudios.mf</pattern>
+                            <shadedPattern>net.aboodyy.worldjoin.dependencies.mf</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>

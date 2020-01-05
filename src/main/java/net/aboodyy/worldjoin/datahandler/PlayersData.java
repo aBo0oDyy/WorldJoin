@@ -36,7 +36,7 @@ public class PlayersData {
         List<String> actions = conf.getStringList(world + ".special_actions." + uuid.toString());
 
         actions.remove(index);
-        conf.set(world + ".special_actions." + uuid.toString(), actions);
+        conf.set(world + ".special_actions." + uuid.toString(), actions.isEmpty() ? null : actions);
         save();
     }
 
