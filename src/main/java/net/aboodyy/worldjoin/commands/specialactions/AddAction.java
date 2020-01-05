@@ -31,7 +31,7 @@ public class AddAction extends CommandBase {
                 actionType,
                 String.join(" ", action)
         );
-        sender.sendMessage(color("&aSpecial action has been successfully added to &f" + player + "&a."));
+        sender.sendMessage(color("&aSpecial action has been successfully added for &f" + player + "&a."));
     }
 
 }

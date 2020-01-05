@@ -28,7 +28,7 @@ public class ReloadCommand extends CommandBase {
                 sender.sendMessage(color(plugin.getConfig().getString("messages.no_permission")));
         });
 
-        sender.sendMessage(color("&aWorld&7Join &fhas successfully reloaded."));
+        sender.sendMessage(color("&aWorld&7Join &fhas been reloaded successfully."));
     }
 
 }
