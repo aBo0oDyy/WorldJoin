@@ -20,8 +20,10 @@ package net.aboodyy.worldjoin.commands.specialactions;
 
 import me.mattstudios.mf.annotations.*;
 import me.mattstudios.mf.base.CommandBase;
+import net.aboodyy.worldjoin.actions.ActionsManager;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 
 import static net.aboodyy.worldjoin.Utils.color;
@@ -40,6 +42,31 @@ public class AddAction extends CommandBase {
 
         if (p == null) {
             sender.sendMessage(color("&cCouldn't find a player with the name of &f" + player + "&c."));
+            return;
+        }
+
+        if (p.isOnline() && p.getPlayer().getWorld().getName().equals(world)) {
+            ActionsManager actionsManager = plugin.getActionsManager();
+            World w = p.getPlayer().getWorld();
+            String actionString = String.join(" ", action);
+
+            switch (actionType.toLowerCase()) {
+                case "console":
+                    actionsManager.getConsoleAction().console(p.getPlayer(), w, w, "[console] " + actionString);
+                    break;
+                case "player":
+                    actionsManager.getPlayerAction().player(p.getPlayer(), w, w, "[player] " + actionString);
+                    break;
+                case "message":
+                    actionsManager.getMessageAction().message(p.getPlayer(), w, w, "[message] " + actionString);
+                    break;
+                case "broadcast":
+                    actionsManager.getMessageAction().broadcast(p.getPlayer(), w, w, "[broadcast] " + actionString);
+                    break;
+            }
+
+            sender.sendMessage(color("&aSpecial action has been successfully executed for &f" + player + "&a," +
+                    "found on the requested world."));
             return;
         }
 
