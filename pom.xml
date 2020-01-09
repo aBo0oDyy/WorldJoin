@@ -6,7 +6,7 @@
 
     <groupId>net.aboodyy</groupId>
     <artifactId>worldjoin</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.2-DEV</version>
 
     <repositories>
         <repository>
